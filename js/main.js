@@ -31,6 +31,25 @@ function generate() {
   }
 }
 
+function loadJson(){
+  $.getJSON('rescource/server.json',function (data) {
+    var tr;
+
+    $.each (data,function(i,item))
+
+    for (var i = 0; i < data.length; i++) {
+
+      console.log(data[i].name);
+
+      tr = $('<tr/>');
+      tr.append("<td>" + data[i].name + "</td>");
+      tr.append("<td>" + data[i].address + "</td>");
+      tr.append("<td>" + data[i].method + "</td>");
+      $('table').append(tr);
+    }
+  });
+}
+
 function makeImage(){
   for (i = 0; i < qrstring.length; i++) {
     jQuery('#qrcode').qrcode({
@@ -41,3 +60,5 @@ function makeImage(){
     });
   }
 }
+
+loadJson()

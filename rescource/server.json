@@ -1,0 +1,17 @@
+[
+  {
+    "name":"美国",
+    "address":"us.abc.me",
+    "method":"aes-256-cfb",
+  },
+  {
+    "name":"日本",
+    "address":"jp.abc.me",
+    "method":"aes-256-cfb",
+  },
+  {
+    "name":"台湾",
+    "address":"tw.abc.me",
+    "method":"aes-256-cfb",
+  }
+]
