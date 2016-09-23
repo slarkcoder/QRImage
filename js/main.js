@@ -5,12 +5,30 @@ var serverList = {
 };
 
 function generate() {
-  for (i = 0; i < serverList.address.length; i++){
-    let str = serverList.method[i] + "-auth:" + document.getElementById("password").value + "@" + serverList.address[i] + ":" + document.getElementById("port").value
-    let qr = "ss://" + btoa(str)
-    qrstring.push(qr)
+  if (document.getElementById("port").value.length == 0) {
+    $(document).ready(function(){
+      $("#alert").text("端口不能为空");
+      $("#alert").show();
+    });
+  }else if (document.getElementById("password").value.length == 0) {
+    $(document).ready(function(){
+      $("#alert").text("密码不能为空");
+      $("#alert").show();
+    });
+  }else{
+
+    for (i = 0; i < serverList.address.length; i++){
+      let str = serverList.method[i] + "-auth:" + document.getElementById("password").value + "@" + serverList.address[i] + ":" + document.getElementById("port").value
+      let qr = "ss://" + btoa(str)
+      qrstring.push(qr)
+    }
+    makeImage()
+
+    $(document).ready(function(){
+      $("#alert").text("密码不能为空");
+      $("#alert").hide();
+    });
   }
-  makeImage()
 }
 
 function makeImage(){
